@@ -2,7 +2,7 @@ import React from 'react';
 import './Button.css';
 import { Link } from 'react-router-dom';
 
-function Button({ variant, label, onClick, destination, myMarginTop }) {
+function Button({ variant, label, onClick, destination, myMarginTop, style }) {
   // If a destination is provided, render a Link
   if (destination) {
     // Check if the margin that I'm adding is valid, 
@@ -11,7 +11,7 @@ function Button({ variant, label, onClick, destination, myMarginTop }) {
     if(!myMarginTop) myMarginTop = "";
 
     return (
-      <Link to={destination} className={`button button__${variant} ${myMarginTop}`}>
+      <Link to={destination} className={`button button__${variant} ${myMarginTop}`} style={style}>
         {label}
       </Link>
     );

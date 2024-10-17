@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useRef } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./ProductDisplay.css";
 
 // Import Swiper React components
@@ -9,54 +9,18 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 
 import SizeSelector from "@ui/SizeSelector/SizeSelector";
-// import WishlistIcon from '../../../components/UI/WishlistIcon/WishlistIcon';
 
 import { WishlistContext } from "@context/WishlistContext";
-
 import useToast from "@hooks/useToast";
+import Button from '@ui/Button/Button'
 
 function ProductDisplay({ product }) {
   const [isOpen, setIsOpen] = useState(false);
-
-  // Convert images object to an array of [key, image] pairs
   const imageEntries = Object.entries(product.images);
-
   const [selectedSize, setSelectedSize] = useState(null);
   const { wishlistItems, addToWishlist, removeFromWishlist } = useContext(WishlistContext);
-
-    // const isProductInWishlist = product ? wishlistItems.some(item => item.id === product.id && item.size === selectedSize) : false;
-
-
   const [isWishlisted, setIsWishlisted] = useState(false);
-
   const { showToastSuccess } = useToast();
-
-  // const toggleWishlist = (e) => {
-  //   e.preventDefault();
-  //   if (product) {
-  //     setIsWishlisted((prev) => !prev);
-  //   }
-  // };
-
-  // const firstRender = useRef(true);
-
-  // useEffect(() => {
-  //   if (firstRender.current) {
-  //     firstRender.current = false;
-  //     return;
-  //   }
-  //   if (product) {
-  //     if (isWishlisted) {
-  //       showToastSuccess("Product Added Successfully");
-  //       addToWishlist(product, selectedSize)
-  //     } else {
-  //       showToastSuccess("Product Removed Successfully");
-  //       removeFromWishlist(product.id, selectedSize)
-  //     }
-  //   }
-  // }, [isWishlisted]);
-
-
 
   const toggleWishlist = (e) => {
     e.preventDefault();
@@ -73,11 +37,6 @@ function ProductDisplay({ product }) {
     }
   };
 
-  // useEffect(() => {
-  //   const isProductInWishlist = product ? wishlistItems.some(item => item.id === product.id && item.size === selectedSize) : false;
-  //   setIsWishlisted(isProductInWishlist)
-  // }, [selectedSize])
-
   useEffect(() => {
     const isProductInWishlist = product
       ? wishlistItems.some(
@@ -87,7 +46,6 @@ function ProductDisplay({ product }) {
     setIsWishlisted(isProductInWishlist);
   }, [selectedSize, wishlistItems, product]);
 
-  // Move the first image to the end
   if (imageEntries.length > 1) {
     const [firstImage] = imageEntries;
     imageEntries.push(imageEntries.shift());
@@ -98,34 +56,25 @@ function ProductDisplay({ product }) {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
-
     setDynamicHeight();
-
-    // Recalculate the height on resize (e.g., when the user scrolls or rotates the screen)
     window.addEventListener("resize", setDynamicHeight);
-
     return () => window.removeEventListener("resize", setDynamicHeight);
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
 
   return (
     <div className="product-display">
-      <div className="product-img-container">
+      <div className="product-display__img-container">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={10}
-          // slidesPerView={1.5}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true, hide: false }}
-          // onSwiper={(swiper) => console.log(swiper)}
-          // onSlideChange={() => console.log("slide change")}
           breakpoints={{
             320: {
-              // mobile devices
               slidesPerView: 1,
             },
             480: {
-              // small tablets
               slidesPerView: 2,
             },
           }}
@@ -137,40 +86,33 @@ function ProductDisplay({ product }) {
           ))}
         </Swiper>
       </div>
-      <div className="product-info">
-        <div className="product-brand">{product.brand}</div>
-        <div className="product-name">{product.name}</div>
-        <div className="product-prices">
-          <span className="product-old-price">${product.old_price}</span>
-          <span className="product-new-price">${product.new_price}</span>
+      <div className="product-display__info">
+        <div className="product-display__brand">{product.brand}</div>
+        <div className="product-display__name">{product.name}</div>
+        <div className="product-display__prices">
+          <span className="product-display__old-price">${product.old_price}</span>
+          <span className="product-display__new-price">${product.new_price}</span>
         </div>
-        {/* <WishlistIcon product={product} type={'detail'} selectedSize={selectedSize} setSelectedSize={setSelectedSize}/> */}
-        <button className="product-add-to-wishlist" onClick={toggleWishlist}>
-          {/* Conditionally render the heart icons based on the wishlist state */}
-          <i
-            className={`bx bx-heart ${isWishlisted ? "inactive" : "active"}`}
-          ></i>
-          <i
-            className={`bx bxs-heart ${isWishlisted ? "active" : "inactive"}`}
-          ></i>
+        <button className="product-display__add-to-wishlist" onClick={toggleWishlist}>
+          <i className={`bx bx-heart ${isWishlisted ? "inactive" : "active"}`}></i>
+          <i className={`bx bxs-heart ${isWishlisted ? "active" : "inactive"}`}></i>
         </button>
 
         <div>
-          <div onClick={() => setIsOpen(true)} className="select-size">
+          <div onClick={() => setIsOpen(true)} className="product-display__select-size">
             {selectedSize === null ? (
               "Select Size"
             ) : (
-              // `Selected Size : ${selectedSize}`
               <>
-                Selected Size : <span className="size">{selectedSize}</span>
+                Selected Size : <span className="product-display__size">{selectedSize}</span>
               </>
             )}
             <span>
               <i className="bx bx-chevron-down"></i>
             </span>
           </div>
-
-          <button className="add-to-bag">Add To Bag</button>
+          <Button variant={'primary'} label={'Add To Bag'}/>
+          {/* <button className="product-display__add-to-bag">Add To Bag</button> */}
 
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -188,5 +130,5 @@ function ProductDisplay({ product }) {
     </div>
   );
 }
-
+ 
 export default ProductDisplay;

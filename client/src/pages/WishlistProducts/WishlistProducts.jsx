@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './WishlistProducts.css'
 import WishlistProduct from '@ui/WishlistProduct/WishlistProduct'
 import { WishlistContext } from '@context/WishlistContext';
 
 import {my_products} from '@assets/all_product'
+import Button from '@ui/Button/Button'
 
 function WishlistProducts() {
   const { wishlistItems } = useContext(WishlistContext);
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false);
 
   // useEffect(() => {
   //   // Log the wishlist items whenever the array changes
@@ -25,11 +27,41 @@ function WishlistProducts() {
     return null; // If no match is found, return null
   }).filter(Boolean); // Remove any null values in case no match is found
 
+  const signIn = () => {
+    setIsUserSignedIn(true)
+  }
+
   return (
-    <div className='favorite-products'>
-      {wishlistProductDetails.map((item) => {      
-        return <WishlistProduct key={`${item.id}-${item.size}`} product={item}/>
-      } )}
+    <div className='wishlist-products'>
+      <div className="wishlist-products__title"> WISHLIST </div>
+      {
+        wishlistItems.length > 0 
+        ?       
+        <div className="wishlist-products__subtitle"> {wishlistItems.length} items </div>
+        :
+        (
+          !isUserSignedIn ? 
+          <>
+            <p className="wishlist-products__description">
+              Looking for your wishlist? Sign in or create an account to see and shop your favourite items.
+            </p>
+            <Button label={'Sign In'} variant={'primary'} onClick={() => signIn()} />
+          </>
+          :
+          <>
+            <p className="wishlist-products__description">
+              Add your favourite items to your wishlist and they'll appear here            
+            </p>
+            <Button label={'Shop Now'} variant={'primary'} destination={'/'} />
+          </>
+          
+        )
+      }
+      <div className="wishlist-products__product-container">
+        {wishlistProductDetails.map((item) => {      
+          return <WishlistProduct key={`${item.id}-${item.size}`} product={item}/>
+        })}
+      </div>
     </div>
   )
 }

@@ -1,9 +1,9 @@
-.makeMeDraged{
+.size-selector{
     max-height: 50vh;
     overflow-y: auto;
 }
 
-.makeMeDraged .add-to-bag{
+.size-selector__add-to-bag{
     width: 100%;
     background: black;
     color: white;
@@ -18,7 +18,7 @@
     transition: .3s ease;
 }
 
-.makeMeDraged .add-to-bag:hover{
+.size-selector__add-to-bag:hover{
     background: white;
     color: black;
 }

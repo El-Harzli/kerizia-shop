@@ -1,9 +1,27 @@
-.favorite-products{
-    width: 95%;
+.wishlist-products{
+    width: 93%;
     margin-inline: auto;
+}
+
+.wishlist-products__title{
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.wishlist-products__subtitle{
+    margin-block: .5rem;
+}
+.wishlist-products__description{
+    margin-block: .5rem;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.wishlist-products__product-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 2rem;
     column-gap: .5rem;
-    margin-block: 1rem;
 }

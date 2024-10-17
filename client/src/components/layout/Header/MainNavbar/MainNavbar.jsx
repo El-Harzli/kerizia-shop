@@ -30,9 +30,11 @@ function MainNavbar({ setIsSearchbarMenuActive, setIsSecondaryNavbarActive }) {
             {wishlistLength > 0 && <span className="main-navbar__counter">{wishlistLength}</span>}
           </span>
         </Link>
-        <span className="main-navbar__icon main-navbar__icon--cart">
-          <i className="bx bx-shopping-bag"></i>
-        </span>
+        <Link to={'/checkout'}>
+          <span className="main-navbar__icon main-navbar__icon--cart">
+            <i className="bx bx-shopping-bag"></i>
+          </span>
+        </Link>
       </div>
     </nav>
   );
