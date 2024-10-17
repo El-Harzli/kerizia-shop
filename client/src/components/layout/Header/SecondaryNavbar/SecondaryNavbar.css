@@ -1,0 +1,112 @@
+.secondary-navbar {
+    height: calc(var(--vh, 1vh) * 100); /* Use dynamic height based on JS calculation */
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    background: var(--color-white);
+    z-index: 99;
+    opacity: 0;
+    transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.secondary-navbar--active {
+    left: 0;
+    opacity: 1;
+}
+
+/* Styling for the header within the secondary navbar */
+.secondary-navbar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    padding-top: 1rem;
+}
+
+.secondary-navbar__header i {
+    font-size: 2rem;
+    cursor: pointer; 
+    align-content: center;
+}
+
+.secondary-navbar__logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    align-content: center;
+}
+
+.secondary-navbar__categories {
+    margin-block: 1rem;
+    padding-inline: 1rem;
+}
+
+.category-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--colors-navigation-primary-enabled-stroke);
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+
+.category-list__item {
+    color: var(--color-lighter-dark);
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.category-list__item--active {
+    color: var(--color-dark);
+}
+
+.category-list__underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: black;
+    transition: left 0.3s ease, width 0.3s ease;
+    width: 0;
+}
+
+.secondary-navbar__nav-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.5rem;
+    transition: background 0.3s ease;
+    padding-inline: 1rem;
+}
+
+.secondary-navbar__nav-list-item:hover {
+    background: var(--colors-navigation-primary-enabled-stroke);
+}
+
+.secondary-navbar__nav-list-link {
+    font-size: 1.1rem;
+}
+
+.secondary-navbar__nav-list-item .bx-chevron-right {
+    font-size: 1.5rem;
+}
+
+.secondary-navbar__login-register {
+    margin-top: 1.5rem;
+    padding: 1rem;
+}
+
+.secondary-navbar__login-register-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.sign-in {
+    width: 100%;
+}

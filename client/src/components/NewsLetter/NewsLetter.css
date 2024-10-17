@@ -1,0 +1,99 @@
+.newsletter {
+    width: 93.5%;
+    margin-inline: auto;
+    margin-block: 1.5rem;
+}
+
+.newsletter__title {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.newsletter__description {
+    margin-block: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.newsletter__options {
+    margin-block: 2rem 0.5rem;
+}
+
+.newsletter__label {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-block: 0.5rem;
+}
+
+.newsletter__option {
+    margin-block: 1rem;
+}
+
+/* Hide the default checkbox */
+.newsletter__option input[type="checkbox"] {
+    display: none;
+}
+
+.newsletter__option-text {
+    font-weight: 500;
+    position: relative;
+    padding-left: 1.75rem;
+    cursor: pointer;
+    width: 100%;
+    display: inline-block;}
+
+/* Custom checkbox styling */
+.newsletter__option-text i {
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    font-size: 1.2rem;
+    border: 2px solid black; /* Black border */
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center the checkmark */
+    align-items: center; /* Vertically center the checkmark */
+    border-radius: 0.2rem; /* Optional: Rounded edges */
+    background: white;
+}
+
+/* Apply the check mark when checked */
+.newsletter__option-text i.bx-check {
+    color: black; /* Black check mark */
+}
+
+
+/* Input field styles */
+.newsletter__input {
+    display: block;
+    margin-block: 1rem 1.25rem;
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+
+.newsletter__submit {
+    background: black;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    padding-block: 0.75rem;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    margin-block: .5rem;
+}
+
+.newsletter__consent {
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.375;
+    margin-block: 0.25rem;
+}

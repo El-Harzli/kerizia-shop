@@ -1,0 +1,54 @@
+.main-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 1px 0px 0px var(--color-gray);
+}
+
+.main-navbar__icon {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: middle;
+    border-radius: 0.4rem;
+    transition: 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.main-navbar__icon:hover {
+    background: var(--color-light-gray);
+}
+
+.main-navbar__counter {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    background: black;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50%;
+    min-height: 18px;
+    min-width: 18px;
+    padding-inline: 4px;
+}
+
+.main-navbar__logo {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.main-navbar__left-side, .main-navbar__right-side {
+    display: flex;
+    align-items: center;
+}
+
+/* Modifier classes for icons */
+.main-navbar__icon--hamburger i,
+.main-navbar__icon--search i,
+.main-navbar__icon--heart i,
+.main-navbar__icon--cart i {
+    font-size: 24px;
+    color: black;
+}

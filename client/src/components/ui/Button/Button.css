@@ -1,0 +1,31 @@
+.button {
+  display: inline-block;
+  width: 100%;
+  padding-block: 0.75rem ;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  margin-block: 0.3rem;
+  cursor: pointer;
+  transition: .3s ease;
+  text-align: center; /* Ensures text alignment for both button and link */
+  text-decoration: none; /* Removes underline from Link */
+}
+
+.button__primary {
+  background: black;
+  color: white;
+}
+
+.button__accent {
+  border-color: black;
+  background: transparent;
+  color: black;
+  border: 1px solid black;
+}
+
+.button__primary:hover {
+  background-color: grey; /* Optional hover effect */
+}

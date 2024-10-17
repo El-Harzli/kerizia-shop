@@ -1,0 +1,9 @@
+.favorite-products{
+    width: 95%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    column-gap: .5rem;
+    margin-block: 1rem;
+}

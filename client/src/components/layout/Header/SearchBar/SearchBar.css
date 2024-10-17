@@ -1,0 +1,130 @@
+.search-bar {
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start the search bar off-screen */
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100); 
+    background: var(--color-lighter-gray);
+    z-index: 99;
+    display: block;
+    opacity: 0;
+    transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    padding: 1rem;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.search-bar--active {
+    left: 0; 
+    opacity: 1;
+}
+
+.search-bar__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.search-bar__input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar__input-field .bx-search {
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    color: var(--color-gray);
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+.search-bar__input-field .bx-search.active {
+    color: var(--color-dark);
+    transition: 0.3s ease;
+}
+
+.search-bar__input-field .bx-search.active:hover {
+    background: var(--color-lighter-gray);
+}
+
+.search-bar__input-field input {
+    padding-block: 0.8rem;
+    padding-inline: 2.5rem 1rem;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+
+.search-bar__input-field .bx-x {
+    display: none;
+}
+
+.search-bar__input-field .bx-x.active {
+    display: block;
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    transition: 0.3s ease;
+}
+
+.search-bar__input-field .bx-x.active:hover {
+    background: var(--color-lighter-gray);
+}
+
+.search-bar__cancel {
+    border-radius: 0.5rem;
+}
+
+.search-bar__cancel button {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    background: none;
+    border: none;
+}
+
+.search-bar__cancel button:hover {
+    background: var(--color-gray);
+}
+
+.search-bar__result {
+    margin-top: 1.5rem;
+}
+
+.search-bar__category {
+    margin-bottom: 1rem;
+}
+
+.search-category__items {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--colors-navigation-primary-enabled-stroke);
+    position: relative;
+    height: 30px;
+}
+
+.search-category__item {
+    color: var(--color-lighter-dark);
+    cursor: pointer;
+}
+
+.search-category__item.active {
+    color: var(--color-dark);
+}
+
+.search-category__underline {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: black;
+    transition: left 0.3s ease, width 0.3s ease;
+    width: 0;
+}

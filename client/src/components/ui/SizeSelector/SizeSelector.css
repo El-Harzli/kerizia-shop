@@ -1,0 +1,24 @@
+.makeMeDraged{
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.makeMeDraged .add-to-bag{
+    width: 100%;
+    background: black;
+    color: white;
+    padding-block: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    align-content: center;
+    vertical-align: middle;
+    border: 1px solid black;
+    transition: .3s ease;
+}
+
+.makeMeDraged .add-to-bag:hover{
+    background: white;
+    color: black;
+}
