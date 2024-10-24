@@ -12,13 +12,13 @@
 
 
   /* This was just for testing, but I might leave it as it it */
-  .mb-1{
+  .me-1{
     margin-block: 0.4rem;
   }
-  .mb-2{
+  .me-2{
     margin-block: 0.7rem;
   }
-  .mb-3{
+  .me-3{
     margin-block: 1rem;
   }
 
@@ -46,13 +46,13 @@
 
 
 
-.pb-1{
+.pe-1{
   padding-block: 0.4rem;
 }
-.pb-2{
+.pe-2{
   padding-block: 0.7rem;
 }
-.pb-3{
+.pe-3{
   padding-block: 1rem;
 }
 

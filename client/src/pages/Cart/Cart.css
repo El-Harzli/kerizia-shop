@@ -2,3 +2,64 @@
     width: 93%;
     margin-inline: auto;
 }
+
+.cart-summary__title{
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-block: 1rem 1.5rem;
+}
+
+.cart-summary__subtotal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: .5rem;
+}
+
+.cart-summary__subtotal-title{
+    font-size: 1rem;
+}
+.cart-summary__subtotal-value{
+
+}
+
+
+
+.cart-summary__delivery{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: .5rem .5rem;
+
+}
+.cart-summary__delivery-title{
+    font-size: 1rem;
+}
+.cart-summary__delivery-value{
+
+}
+
+
+
+.cart-summary__total{
+    border-top: 1px solid var(--colors-actions-ghost-dark-hover-label);
+    margin-block: 1rem;
+    padding-block: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-summary__total-title{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cart-summary__total-title{
+    display: flex;
+    align-items: center;
+}
+
+.cart-summary__total-value span{
+    font-weight: 600;
+}

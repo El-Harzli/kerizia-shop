@@ -44,12 +44,24 @@ export const useWishlist = () => {
   }
 
   const updateWishlistItem = (id, currentSize, newSize) => {
-    setWishlistItems((prevItems) =>
-      prevItems.map(item => 
-        item.id === id && item.size === currentSize ? { ...item, size: newSize } : item
-      )
-    );
+    setWishlistItems((prevItems) => {
+      // Check if the item with the same id and newSize already exists
+      const existingItem = prevItems.find(item => item.id === id && item.size === newSize);
+  
+      if (existingItem) {
+        console.log('Item with the same id and size already exists in the wishlist.');
+        return prevItems; // Return the current list without making any changes
+      }
+  
+      // Proceed to update the item with the current size
+      return prevItems.map(item =>
+        item.id === id && item.size === currentSize
+          ? { ...item, size: newSize } // Update the size if both id and currentSize match
+          : item // Return the item as is if there's no match
+      );
+    });
   };
+  
   
 
   return {

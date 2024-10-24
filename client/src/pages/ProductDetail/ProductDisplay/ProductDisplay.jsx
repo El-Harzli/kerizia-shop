@@ -12,15 +12,27 @@ import SizeSelector from "@ui/SizeSelector/SizeSelector";
 
 import { WishlistContext } from "@context/WishlistContext";
 import useToast from "@hooks/useToast";
-import Button from '@ui/Button/Button'
+import Button from '@ui/Button/Button';
+
+import { CartContext } from '@context/CartContext';
+
 
 function ProductDisplay({ product }) {
   const [isOpen, setIsOpen] = useState(false);
   const imageEntries = Object.entries(product.images);
   const [selectedSize, setSelectedSize] = useState(null);
+  const [mySize, setMySize] = useState(null);
   const { wishlistItems, addToWishlist, removeFromWishlist } = useContext(WishlistContext);
   const [isWishlisted, setIsWishlisted] = useState(false);
   const { showToastSuccess } = useToast();
+
+  const { cartListItems, addToCartList } = useContext(CartContext);
+
+  const isProductInCart = cartListItems.find((item) => {
+      if(item.id === product.id && item.size === selectedSize){
+          return true;
+      }
+  } )
 
   const toggleWishlist = (e) => {
     e.preventDefault();
@@ -36,6 +48,14 @@ function ProductDisplay({ product }) {
       }
     }
   };
+
+  useEffect(() => {
+    if(!isOpen){
+        if(mySize){
+            setSelectedSize(mySize)
+        }
+    }
+  }, [isOpen])
 
   useEffect(() => {
     const isProductInWishlist = product
@@ -60,6 +80,18 @@ function ProductDisplay({ product }) {
     window.addEventListener("resize", setDynamicHeight);
     return () => window.removeEventListener("resize", setDynamicHeight);
   }, []);
+
+
+  const addToBag = () => {
+    if(!selectedSize){
+      setIsOpen(true)
+    }
+    else{
+      addToCartList(product,selectedSize);
+      showToastSuccess("Product is now in your bag")
+    }
+    
+  }
 
   return (
     <div className="product-display">
@@ -111,7 +143,13 @@ function ProductDisplay({ product }) {
               <i className="bx bx-chevron-down"></i>
             </span>
           </div>
-          <Button variant={'primary'} label={'Add To Bag'}/>
+          {
+              isProductInCart
+              ?
+              <Button variant={'primary'} label={'In your bag'} destination={'/checkout'} style={{padding : '0.6rem 1rem', fontSize : '1rem'}}/>
+              :
+              <Button variant={'primary'} label={'Add To Bag'} onClick={() => addToBag()} style={{padding : '0.6rem 1rem', fontSize : '1rem'}}/>
+          }
           {/* <button className="product-display__add-to-bag">Add To Bag</button> */}
 
           <div>
@@ -124,7 +162,7 @@ function ProductDisplay({ product }) {
           product={product}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
-          setSelectedSize={setSelectedSize}
+          setMySize={setMySize}
         />
       </div>
     </div>

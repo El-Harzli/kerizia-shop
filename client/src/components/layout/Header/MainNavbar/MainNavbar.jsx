@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import './MainNavbar.css';
 import { Link } from 'react-router-dom';
 import { WishlistContext } from '@context/WishlistContext';
+import { CartContext } from '@context/CartContext';
 
 function MainNavbar({ setIsSearchbarMenuActive, setIsSecondaryNavbarActive }) {
   const { wishlistLength } = useContext(WishlistContext);
+  const { cartListLength } = useContext(CartContext);
 
   const menuClickHandler = () => {
     setIsSecondaryNavbarActive(true);
@@ -33,6 +35,8 @@ function MainNavbar({ setIsSearchbarMenuActive, setIsSecondaryNavbarActive }) {
         <Link to={'/checkout'}>
           <span className="main-navbar__icon main-navbar__icon--cart">
             <i className="bx bx-shopping-bag"></i>
+            {cartListLength > 0 && <span className="main-navbar__counter">{cartListLength}</span>}
+            
           </span>
         </Link>
       </div>

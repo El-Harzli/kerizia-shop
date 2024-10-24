@@ -3,8 +3,18 @@
     overflow-y: auto;
 }
 
+
+.size-selector__item{
+    padding-inline: 1.5rem;
+    transition: .35s ease;
+}
+.size-selector__item--active{
+    background: var(--colors-navigation-primary-enabled-stroke);
+}
+
 .size-selector__add-to-bag{
-    width: 100%;
+    width: 95%;
+    margin-inline-start: 2.5%;
     background: black;
     color: white;
     padding-block: 0.5rem;

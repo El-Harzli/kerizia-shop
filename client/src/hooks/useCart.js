@@ -1,4 +1,4 @@
-// src/hooks/useWishlist.js
+// src/hooks/useCart.js
 
 import { useState, useEffect } from 'react';
 
@@ -19,12 +19,13 @@ export const useCart = () => {
     setCartListLength(cartListItems.length);
   }, [cartListItems]);
 
-  const addToCartList = (product, size = null) => {
-    // Check if the product is already in the wishlist
+  const addToCartList = (product, size = null, quantity = 1) => {
+    // Check if the product is already in the cartList
     if (!cartListItems.find(item => item.id === product.id && item.size === size)) {
       const currentProduct = {
         id: product.id,
         size: size !== undefined ? size : null, // Set size to null if undefined
+        quantity
       };
   
       setCartListItems((prevItems) => [...prevItems, currentProduct]);
@@ -43,10 +44,11 @@ export const useCart = () => {
 
   }
 
-  const updateCartListItem = (id, currentSize, newSize) => {
+  const updateCartListItem = (id, currentSize, newSize, quantity = 1) => {
+        
     setCartListItems((prevItems) =>
       prevItems.map(item => 
-        item.id === id && item.size === currentSize ? { ...item, size: newSize } : item
+        item.id === id && item.size === currentSize ? { ...item, size: newSize, quantity } : item
       )
     );
   };

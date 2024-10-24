@@ -19,7 +19,7 @@ function Button({ variant, label, onClick, destination, myMarginTop, style }) {
   
   // Otherwise, render a regular button with an onClick handler
   return (
-    <button className={`button button__${variant}`} onClick={onClick}>
+    <button className={`button button__${variant}`} onClick={onClick} style={style}>
       {label}
     </button>
   );
