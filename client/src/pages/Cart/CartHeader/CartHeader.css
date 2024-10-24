@@ -1,0 +1,11 @@
+.cart-header__title{
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+
+.cart-header__content p{
+    margin-block: .8rem .3rem;
+}

@@ -5,7 +5,7 @@ import { WishlistContext } from '@context/WishlistContext';
 import { Link } from 'react-router-dom';
 import useToast from '@hooks/useToast';
 
-function CartProduct({ product, size }) {
+function CartItem({ product, size }) {
   const { removeFromCartList, updateCartListItem, cartListItems } = useContext(CartContext);
   const { wishlistItems, addToWishlist } = useContext(WishlistContext);
   const [isUpdatingSize, setIsUpdatingSize] = useState(false);
@@ -199,4 +199,4 @@ function CartProduct({ product, size }) {
   );
 }
 
-export default CartProduct;
+export default CartItem;
