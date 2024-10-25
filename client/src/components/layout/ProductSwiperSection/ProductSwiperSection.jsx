@@ -15,7 +15,8 @@ function ProductSwiperSection({title, data, destination}) {
        
         <CustomSwiper data={data} />
 
-        <Button variant={'accent'} label={'Shop now'} destination={destination} myMarginTop="mt-3"  />
+        <Button variant={'accent'} label={'Shop now'} destination={destination} 
+          myMarginTop="mt-3" style={{fontSize : '1.05rem', padding : '.7rem'}}  />
 
     </section>
   )

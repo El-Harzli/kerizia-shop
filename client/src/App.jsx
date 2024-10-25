@@ -10,6 +10,7 @@ import ProductDetail from '@pages/ProductDetail/ProductDetail';
 import WishlistProducts from '@pages/WishlistProducts/WishlistProducts';
 import NotFound from '@pages/NotFound/NotFound';
 import Cart from '@pages/Cart/Cart';
+import ProductBrowser from '@pages/ProductBrowser/ProductBrowser'
 // import Header from './components/Header/Header';
 
 
@@ -32,15 +33,10 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
-            {/* <Route path='/product-details/:productId' element={<ProductDetail />} /> */}
-            {/* <Route path='/product-filter' element={<ProductFilter />} /> */}
-            {/* <Route path='/favorite-products' element={<FavoriteProducts />} /> */}
-
             <Route path='/products/:productId' element={<ProductDetail />} />
-            {/* <Route path='/products/filter' element={<ProductFilter />} /> */}
+            <Route path='/products/filter' element={<ProductBrowser />} />
             <Route path='/wishlist' element={<WishlistProducts />} />
             <Route path='/checkout' element={<Cart />} />
-
             <Route path='/*' element={<NotFound />} />
           </Routes>
         </CartProvider>

@@ -9,7 +9,7 @@ function Sale() {
     <ProductSwiperSection             
         title={"Enjoy 30% Off Your New-Season Essentials!"}
         data={my_products}
-        destination={"/Sale"}  />
+        destination={"/products/filter"}  />
   )
 }
 
