@@ -23,5 +23,6 @@ a{
 
 html {
   scroll-behavior: smooth;
+  
   /* overflow: unset !important; */
 }

@@ -12,6 +12,7 @@
   transition: .3s ease;
   text-align: center; /* Ensures text alignment for both button and link */
   text-decoration: none; /* Removes underline from Link */
+  box-sizing: border-box;
 }
 
 .button__primary {

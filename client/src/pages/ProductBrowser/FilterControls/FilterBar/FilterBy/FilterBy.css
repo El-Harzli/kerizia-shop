@@ -1,0 +1,25 @@
+.filter-by{
+    padding-block: 1rem 1.5rem;
+    padding-inline: .5rem;
+}
+
+.filter-by__title{
+    font-size: 1.075rem;
+    font-weight: 500;
+    margin-block: 1rem;
+    letter-spacing: 0.5px;
+}
+
+
+.filter-by__options{
+}
+.filter-by__option{
+    padding-inline: 1rem;
+    padding-block: .75rem;
+    border-radius: .5rem;
+    transition: .3s ease-in;
+}
+
+.filter-by__option--active{
+    background: var(--color-lighter-gray) ;
+}

@@ -4,7 +4,7 @@
     left: -100%; /* Start the search bar off-screen */
     width: 100%;
     height: calc(var(--vh, 1vh) * 100); 
-    background: var(--color-lighter-gray);
+    background: var(--color-white);
     z-index: 99;
     display: block;
     opacity: 0;

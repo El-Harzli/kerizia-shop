@@ -1,0 +1,54 @@
+.sort-by{
+    padding-block: 2rem 1.5rem;
+    padding-inline: .5rem;
+}
+
+.sort-by__title{
+    font-size: 1.075rem;
+    font-weight: 500;
+    margin-block: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.sort-by__content{
+    margin-top: 2rem;
+}
+
+
+.sort-by__option{
+    margin-block: 1rem ;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sort-by__option input[type="radio"] {
+    appearance: none;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    outline: none;
+}
+
+.sort-by__option input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: .6rem;
+    height: .6rem;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+label {
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
